@@ -112,9 +112,9 @@ if ($status == false) {
           <th>名前</th>
           <th>生年月日</th>
           <th>作成日</th>
-          <!-- <th>受講状況</th> -->
+          <th>受講状況</th>
 
-          <!-- <th>経営（福岡ＶＢ）</th>
+          <th>経営（福岡ＶＢ）</th>
           <th>経営（福岡商工）</th>
           <th>経営（政策金融）</th>
           <th>経営（福岡市）</th>
@@ -132,7 +132,7 @@ if ($status == false) {
           <th>人材（福岡ＶＢ）</th>
           <th>人材（福岡商工）</th>
           <th>人材（政策金融）</th>
-          <th>人材（福岡市）</th>-->
+          <th>人材（福岡市）</th>
 
           <th>完了確認日</th> 
 
@@ -144,13 +144,9 @@ if ($status == false) {
         <?=$output ?>
       </tbody>
     </table>
-
-
   </fieldset>
-  <a href="view_completed.php">修了者一覧</a>
-
-
-
+  <a href="viewAdmin_completed.php">修了者一覧</a>
+  <a href="home.php">通常メニュー</a>
 
 </body>
 

@@ -1,12 +1,14 @@
 <?php
+session_start();
 // DB接続の設定
 // DB名は`gsacf_x00_00`にする
 include('functions.php');
+check_session_id();
 
 $pdo = connect_to_db();
 
 // データ取得SQL作成
-$sql = 'SELECT * FROM startup_support WHERE 受講状況 = "完了"';//WHERE 受講状況 = 受講中
+$sql = 'SELECT * FROM startup_support WHERE 完了確認日 != ""';//WHERE 受講状況 = 受講中
 
 // SQL準備&実行
 

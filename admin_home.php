@@ -48,27 +48,27 @@ if ($status == false) {
     // $output .= "<td>{$record["受講状況"]}</td>";
 
 
-    // $output .= "<td>{$record["経営（福岡県VB支援）"]}</td>";
-    // $output .= "<td>{$record["経営（福岡商工）"]}</td>";
-    // $output .= "<td>{$record["経営（政策金融）"]}</td>";
-    // $output .= "<td>{$record["経営（福岡市）"]}</td>";
+    $output .= "<td>{$record["経営（福岡県VB支援）"]}</td>";
+    $output .= "<td>{$record["経営（福岡商工）"]}</td>";
+    $output .= "<td>{$record["経営（政策金融）"]}</td>";
+    $output .= "<td>{$record["経営（福岡市）"]}</td>";
 
-    // $output .= "<td>{$record["財務（福岡県VB支援）"]}</td>";
-    // $output .= "<td>{$record["財務（福岡商工）"]}</td>";
-    // $output .= "<td>{$record["財務（政策金融）"]}</td>";
-    // $output .= "<td>{$record["財務（福岡市）"]}</td>";
+    $output .= "<td>{$record["財務（福岡県VB支援）"]}</td>";
+    $output .= "<td>{$record["財務（福岡商工）"]}</td>";
+    $output .= "<td>{$record["財務（政策金融）"]}</td>";
+    $output .= "<td>{$record["財務（福岡市）"]}</td>";
 
-    // $output .= "<td>{$record["販路（福岡県VB支援）"]}</td>";
-    // $output .= "<td>{$record["販路（福岡商工）"]}</td>";
-    // $output .= "<td>{$record["販路（政策金融）"]}</td>";
-    // $output .= "<td>{$record["販路（福岡市）"]}</td>";
+    $output .= "<td>{$record["販路（福岡県VB支援）"]}</td>";
+    $output .= "<td>{$record["販路（福岡商工）"]}</td>";
+    $output .= "<td>{$record["販路（政策金融）"]}</td>";
+    $output .= "<td>{$record["販路（福岡市）"]}</td>";
 
-    // $output .= "<td>{$record["人材育成（福岡県VB支援）"]}</td>";
-    // $output .= "<td>{$record["人材育成（福岡商工）"]}</td>";
-    // $output .= "<td>{$record["人材育成（政策金融）"]}</td>";
-    // $output .= "<td>{$record["人材育成（福岡市）"]}</td>";
+    $output .= "<td>{$record["人材育成（福岡県VB支援）"]}</td>";
+    $output .= "<td>{$record["人材育成（福岡商工）"]}</td>";
+    $output .= "<td>{$record["人材育成（政策金融）"]}</td>";
+    $output .= "<td>{$record["人材育成（福岡市）"]}</td>";
 
-    // $output .= "<td>{$record["完了確認日"]}</td>";
+    $output .= "<td>{$record["完了確認日"]}</td>";
     $output .= "<td><a href='view_update.php?id={$record["id"]}'>変更</td>";
 
     $output .= "</tr>";
@@ -112,9 +112,9 @@ if ($status == false) {
           <th>名前</th>
           <th>生年月日</th>
           <th>作成日</th>
-          <!-- <th>受講状況</th> -->
+          <th>受講状況</th>
 
-          <!-- <th>経営（福岡ＶＢ）</th>
+          <th>経営（福岡ＶＢ）</th>
           <th>経営（福岡商工）</th>
           <th>経営（政策金融）</th>
           <th>経営（福岡市）</th>
@@ -132,7 +132,7 @@ if ($status == false) {
           <th>人材（福岡ＶＢ）</th>
           <th>人材（福岡商工）</th>
           <th>人材（政策金融）</th>
-          <th>人材（福岡市）</th>-->
+          <th>人材（福岡市）</th>
 
           <th>完了確認日</th> 
 
@@ -147,7 +147,9 @@ if ($status == false) {
 
 
   </fieldset>
-  <a href="view_completed.php">修了者一覧</a>
+  <a href="adminView_completed.php">修了者一覧</a>
+  <!-- <input type="hidden" name="user_id" value="<?=$record['user_id']?> disabled" >
+  <input type="hidden" name="password" value="<?=$record['password']?> disabled" > -->
 
 
 

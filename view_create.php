@@ -1,3 +1,12 @@
+<?php
+session_start();
+// DB接続の設定
+// DB名は`gsacf_x00_00`にする
+include('functions.php');
+check_session_id();
+
+?>
+
 <!DOCTYPE html>
 <html lang="ja">
 

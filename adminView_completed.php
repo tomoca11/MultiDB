@@ -8,16 +8,12 @@ check_session_id();
 $pdo = connect_to_db();
 
 // データ取得SQL作成
-$sql = 'SELECT * FROM startup_support';
+$sql = 'SELECT * FROM startup_support WHERE 完了確認日 != ""';//WHERE 受講状況 = 受講中
 
 // SQL準備&実行
 
 $stmt = $pdo -> prepare($sql);
 $status = $stmt -> execute();
-
-var_dump($stmt);
-var_dump($status);
-
 
 
 // データ登録処理後
@@ -62,21 +58,42 @@ if ($status == false) {
 
 <body>
     <div>
-        <h2>受講者一覧</h2> 
-        <a href="view_create.php">新規受講者を登録</a>
+        <h2>受講者一覧(Admin)</h2> 
+        <a href="admin_home.php">受講者一覧(Admin)に戻る</a>
 
     </div>
 
 
   <fieldset>
-    <legend>受講中一覧</legend>
+    <legend>修了者一覧</legend>
     <table>
       <thead>
         <tr>
           <th>受講者番号</th>
           <th>名前</th>
           <th>生年月日</th>
-          <th>受講状況</th>
+
+          <th>経営（福岡ＶＢ）</th>
+          <th>経営（福岡商工）</th>
+          <th>経営（政策金融）</th>
+          <th>経営（福岡市）</th>
+
+          <th>財務（福岡ＶＢ）</th>
+          <th>財務（福岡商工）</th>
+          <th>財務（政策金融）</th>
+          <th>財務（福岡市）</th>
+
+          <th>販路（福岡ＶＢ）</th>
+          <th>販路（福岡商工）</th>
+          <th>販路（政策金融）</th>
+          <th>販路（福岡市）</th>
+
+          <th>人材（福岡ＶＢ）</th>
+          <th>人材（福岡商工）</th>
+          <th>人材（政策金融）</th>
+          <th>人材（福岡市）</th>
+
+          <th>完了確認日</th>
         </tr>
       </thead>
       <tbody>
@@ -85,7 +102,7 @@ if ($status == false) {
       </tbody>
     </table>
   </fieldset>
-  <a href="view_completed.php">修了者一覧</a>
+
 </body>
 
 </html>
