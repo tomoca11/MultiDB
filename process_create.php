@@ -51,7 +51,7 @@ $sql = 'INSERT INTO startup_support(id, 受講者番号, 名前, 生年月日, �
   // var_dump($sql);
 
   $stmt = $pdo -> prepare($sql);
-  var_dump($stmt);
+  
   $stmt -> bindValue(':uid', $uid, PDO::PARAM_STR);
   $stmt -> bindValue(':name', $name, PDO::PARAM_STR);
   $stmt -> bindValue(':birthDay', $birthDay, PDO::PARAM_STR);

@@ -53,7 +53,7 @@ if ($status == false) {
   <form action="process_update.php" method ="POST">
     <fieldset>
       <legend>受講状況更新</legend>
-      <a href="home.php">受講中一覧へ戻る</a>
+      <a href="admin_home.php">受講中一覧へ戻る</a>
 
       <!-- 名前とIDを抽出して表示  -->
       <div>
@@ -66,30 +66,30 @@ if ($status == false) {
       <div class="keiei">
         <h3>経営</h3> 
         <ol>
-         <p>１ 福岡県　　　: <input type="text" name="k1" placeholder="YYYYMMDD" value="<?= $record['経営（福岡県VB支援）'] ?>"></p> 
-         <p>２ 福岡商工　　: <input type="text" name="k2" placeholder="YYYYMMDD" value="<?= $record['経営（福岡商工）'] ?>"></p> 
-         <p>３ 日本政策金融: <input type="text" name="k3" value="<?= $record['経営（政策金融）'] ?>"></p>  
-         <p>４ 福岡市　　　: <input type="text" name="k4" value="<?= $record['経営（福岡市）'] ?>"></p>        
+         <p>１ 福岡県　　　: <input type="date" name="k1" value="<?= $record['経営（福岡県VB支援）'] ?>"></p> 
+         <p>２ 福岡商工　　: <input type="date" name="k2" value="<?= $record['経営（福岡商工）'] ?>"></p> 
+         <p>３ 日本政策金融: <input type="date" name="k3" value="<?= $record['経営（政策金融）'] ?>"></p>  
+         <p>４ 福岡市　　　: <input type="date" name="k4" value="<?= $record['経営（福岡市）'] ?>"></p>        
         </ol>
       </div>
 
       <div class="zaimu">
         <h3>財務</h3>
         <ol>
-          <p>１ 福岡県　　　: <input type="text" name="z1" value="<?= $record['財務（福岡県VB支援）'] ?>"></p> 
-          <p>２ 福岡商工　　: <input type="text" name="z2" value="<?= $record['財務（福岡商工）'] ?>"></p> 
-          <p>３ 日本政策金融: <input type="text" name="z3" value="<?= $record['財務（政策金融）'] ?>"></p> 
-          <p>４ 福岡市　　　: <input type="text" name="z4" value="<?= $record['財務（福岡市）'] ?>"></p> 
+          <p>１ 福岡県　　　: <input type="date" name="z1" value="<?= $record['財務（福岡県VB支援）'] ?>"></p> 
+          <p>２ 福岡商工　　: <input type="date" name="z2" value="<?= $record['財務（福岡商工）'] ?>"></p> 
+          <p>３ 日本政策金融: <input type="date" name="z3" value="<?= $record['財務（政策金融）'] ?>"></p> 
+          <p>４ 福岡市　　　: <input type="date" name="z4" value="<?= $record['財務（福岡市）'] ?>"></p> 
         </ol> 
       </div>
 
       <div class="hanro">
         <h3>販路</h3> 
         <ol>
-          <p>１ 福岡県　　　: <input type="text" name="h1" value="<?= $record['販路（福岡県VB支援）'] ?>"></p> 
-          <p>２ 福岡商工　　: <input type="text" name="h2" value="<?= $record['販路（福岡商工）'] ?>"></p> 
-          <p>３ 日本政策金融: <input type="text" name="h3" value="<?= $record['販路（政策金融）'] ?>"></p> 
-          <p>４ 福岡市　　　: <input type="text" name="h4" value="<?= $record['販路（福岡市）'] ?>"></p> 
+          <p>１ 福岡県　　　: <input type="date" name="h1" value="<?= $record['販路（福岡県VB支援）'] ?>"></p> 
+          <p>２ 福岡商工　　: <input type="date" name="h2" value="<?= $record['販路（福岡商工）'] ?>"></p> 
+          <p>３ 日本政策金融: <input type="date" name="h3" value="<?= $record['販路（政策金融）'] ?>"></p> 
+          <p>４ 福岡市　　　: <input type="date" name="h4" value="<?= $record['販路（福岡市）'] ?>"></p> 
         </ol>
       </div>
 
@@ -97,9 +97,9 @@ if ($status == false) {
         <h3>人材育成</h3> 
         <ol>
           <p>１ 福岡県　　　: <input type="text" name="j1" value="<?= $record['人材育成（福岡県VB支援）'] ?>" readonly></p>
-          <p>２ 福岡商工　　: <input type="text" name="j2" value="<?= $record['人材育成（福岡商工）'] ?>"></p> 
-          <p>３ 日本政策金融: <input type="text" name="j3" value="<?= $record['人材育成（政策金融）'] ?>"></p> 
-          <p>４ 福岡市　　　: <input type="text" name="j4" value="<?= $record['人材育成（福岡市）'] ?>"></p> 
+          <p>２ 福岡商工　　: <input type="date" name="j2" value="<?= $record['人材育成（福岡商工）'] ?>"></p> 
+          <p>３ 日本政策金融: <input type="date" name="j3" value="<?= $record['人材育成（政策金融）'] ?>"></p> 
+          <p>４ 福岡市　　　: <input type="date" name="j4" value="<?= $record['人材育成（福岡市）'] ?>"></p> 
         </ol>
       </div>
 
@@ -111,7 +111,9 @@ if ($status == false) {
            <label><input type="radio" name="stats" id="rd1" value="1"{$checked["stats"]["1"]}>完了</label> -->
 
 
-          <p>１ 全項目の完了日: <input type="text" name="end_date"></p> 
+          <p>1 全項目の完了日: <input type="date" name="end_date"></p> 
+
+          <p>2 削除フラグ　　: <input type="text" name="delete_flag"></p>
         </ol> 
 
       </div>

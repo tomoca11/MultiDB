@@ -16,6 +16,13 @@ $password =$_POST['password'];
 // var_dump($user_id);
 // var_dump($password);
 
+$sql2 = 'INSERT INTO startup_loginrecord(log_id, log_dateTime) 
+        VALUES (:user_id , sysdate())';
+
+$stmt = $pdo->prepare($sql2);
+$stmt->bindValue(':user_id', $user_id, PDO::PARAM_STR);
+$status2 = $stmt->execute();
+
 // データ取得SQL作成&実行
 $sql = 'SELECT * FROM startup_user
         WHERE 名前= :user_id
@@ -41,7 +48,7 @@ if (!$val) {
   $_SESSION["session_id"] = session_id();
   $_SESSION["is_admin"] = $val["is_admin"];
   $_SESSION["user_id"] = $val["user_id"];
-  header("Location:home.php"); // 一覧ページへ移動
+  header("Location:admin_home.php"); // 一覧ページへ移動
   exit();
   }  // ログインできたら情報をsession領域に保存して一覧ページへ移動
 

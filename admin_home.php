@@ -42,10 +42,10 @@ if ($status == false) {
 
     $output .= "<tr>";
     $output .= "<td>{$record["受講者番号"]}</td>";
-    $output .= "<td><a href='view_update.php?id={$record["id"]}'>{$record["名前"]}</a></td>";
+    $output .= "<td><a href='admin_update.php?id={$record["id"]}'>{$record["名前"]}</a></td>";
     $output .= "<td>{$record["生年月日"]}</td>";
     $output .= "<td>{$record["作成日"]}</td>";
-    // $output .= "<td>{$record["受講状況"]}</td>";
+    $output .= "<td>{$record["delete_flag"]}</td>";
 
 
     $output .= "<td>{$record["経営（福岡県VB支援）"]}</td>";
@@ -69,7 +69,7 @@ if ($status == false) {
     $output .= "<td>{$record["人材育成（福岡市）"]}</td>";
 
     $output .= "<td>{$record["完了確認日"]}</td>";
-    $output .= "<td><a href='view_update.php?id={$record["id"]}'>変更</td>";
+    $output .= "<td><a href='admin_update.php?id={$record["delete_flag"]}'>変更</td>";
 
     $output .= "</tr>";
 
@@ -84,18 +84,27 @@ if ($status == false) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>受講者一覧</title>
+  <title>受講者一覧（管理者用）</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
 </head>
 
-<body>
-    <div>
+<body class="m-5">
+
+    <div class="m-2">
         <div>
-          <h2>受講者一覧</h2>
-          <button><a href="logout.php">ログアウト</a></button>
+          <h2 class="card-header">受講者一覧（管理者用）</h2>
+          <button type="button" class="btn btn-outline-success"><a href="admin_loginRecord.php">ログイン履歴</a> </button>
+
+          <button type="button" class="btn btn-light"><a href="ac_create.php">ID作成</a></button>
+
+          <button class="btn btn-outline-danger"><a href="logout.php"> ログアウト</a></button>
+
+
         </div>
         
         <div>
-          <a href="view_create.php">新規受講者を登録</a>
+          <!-- <a href="view_create.php">新規受講者を登録</a> -->
           
         </div>
 
@@ -104,15 +113,15 @@ if ($status == false) {
 
 
   <fieldset>
-    <legend>受講中一覧</legend>
-    <table>
+
+    <table class="table table-bordered">
       <thead>
         <tr>
           <th>受講者番号</th>
           <th>名前</th>
           <th>生年月日</th>
           <th>作成日</th>
-          <th>受講状況</th>
+          <th>削除</th>
 
           <th>経営（福岡ＶＢ）</th>
           <th>経営（福岡商工）</th>

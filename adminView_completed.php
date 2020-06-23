@@ -37,9 +37,36 @@ if ($status == false) {
 
     $output .= "<tr>";
     $output .= "<td>{$record["受講者番号"]}</td>";
-    $output .= "<td><a href='function_change.php?id={$record["id"]}'>{$record["名前"]}</a></td>";
+    $output .= "<td><a href='admin_update.php?id={$record["id"]}'>{$record["名前"]}</a></td>";
     $output .= "<td>{$record["生年月日"]}</td>";
-    $output .= "<td>{$record["受講状況"]}</td>";
+    // $output .= "<td>{$record["受講状況"]}</td>";
+    $output .= "<td>{$record["delete_flag"]}</td>";
+
+
+    $output .= "<td>{$record["経営（福岡県VB支援）"]}</td>";
+    $output .= "<td>{$record["経営（福岡商工）"]}</td>";
+    $output .= "<td>{$record["経営（政策金融）"]}</td>";
+    $output .= "<td>{$record["経営（福岡市）"]}</td>";
+
+    $output .= "<td>{$record["財務（福岡県VB支援）"]}</td>";
+    $output .= "<td>{$record["財務（福岡商工）"]}</td>";
+    $output .= "<td>{$record["財務（政策金融）"]}</td>";
+    $output .= "<td>{$record["財務（福岡市）"]}</td>";
+
+    $output .= "<td>{$record["販路（福岡県VB支援）"]}</td>";
+    $output .= "<td>{$record["販路（福岡商工）"]}</td>";
+    $output .= "<td>{$record["販路（政策金融）"]}</td>";
+    $output .= "<td>{$record["販路（福岡市）"]}</td>";
+
+    $output .= "<td>{$record["人材育成（福岡県VB支援）"]}</td>";
+    $output .= "<td>{$record["人材育成（福岡商工）"]}</td>";
+    $output .= "<td>{$record["人材育成（政策金融）"]}</td>";
+    $output .= "<td>{$record["人材育成（福岡市）"]}</td>";
+
+    $output .= "<td>{$record["完了確認日"]}</td>";
+
+    $output .= "<td><a href='view_update.php?id={$record["id"]}'>変更</td>";
+
     $output .= "</tr>";
 
   }
@@ -54,6 +81,8 @@ if ($status == false) {
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>受講者一覧</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
 </head>
 
 <body>
@@ -66,12 +95,14 @@ if ($status == false) {
 
   <fieldset>
     <legend>修了者一覧</legend>
-    <table>
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>受講者番号</th>
           <th>名前</th>
           <th>生年月日</th>
+          <th>削除</th>
+
 
           <th>経営（福岡ＶＢ）</th>
           <th>経営（福岡商工）</th>

@@ -1,4 +1,5 @@
 <?php
+
 session_start();
 // DB接続の設定
 // DB名は`gsacf_x00_00`にする
@@ -8,12 +9,18 @@ check_session_id();
 $pdo = connect_to_db();
 
 // データ取得SQL作成
-$sql = 'SELECT * FROM startup_support WHERE 完了確認日 != ""';//WHERE 受講状況 = 受講中
+$sql = 'SELECT * FROM startup_user LEFT OUTER JOIN startup_loginrecord
+        ON startup_user.名前 = startup_loginrecord.log_id';
 
 // SQL準備&実行
 
 $stmt = $pdo -> prepare($sql);
 $status = $stmt -> execute();
+
+// var_dump($stmt);
+// var_dump($status);
+// exit;
+
 
 
 // データ登録処理後
@@ -36,10 +43,9 @@ if ($status == false) {
   foreach($result as $record){
 
     $output .= "<tr>";
-    $output .= "<td>{$record["受講者番号"]}</td>";
-    $output .= "<td><a href='function_change.php?id={$record["id"]}'>{$record["名前"]}</a></td>";
-    $output .= "<td>{$record["生年月日"]}</td>";
-    $output .= "<td>{$record["完了確認日"]}</td>";
+    $output .= "<td>{$record["名前"]}</td>";
+    $output .= "<td>{$record["所属"]}</td>";
+    $output .= "<td>{$record["log_dateTime"]}</td>";;
     $output .= "</tr>";
 
   }
@@ -53,26 +59,40 @@ if ($status == false) {
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>受講者一覧</title>
+  <title>受講者一覧（管理者用）</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+
 </head>
 
 <body>
     <div>
-        <h2>受講者一覧</h2> 
-        <a href="home.php">受講者一覧に戻る</a>
+      <a href="admin_home.php">戻る</a>
+    </div>
+    <div>
+        <div>
+          <h2>ログイン履歴一覧（管理者用）</h2>
+          <button><a href="logout.php">ログアウト</a></button>
+        </div>
+        
+        <div>
+          <!-- <a href="view_create.php">新規受講者を登録</a> -->
+          
+        </div>
+
 
     </div>
 
 
   <fieldset>
-    <legend>修了者一覧</legend>
-    <table>
+    <legend>受講中一覧</legend>
+    <table class="table table-striped">
       <thead>
         <tr>
-          <th>受講者番号</th>
           <th>名前</th>
-          <th>生年月日</th>
-          <th>受講完了日</th>
+          <th>所属</th>
+          <th>ログイン日時</th>
+
+
         </tr>
       </thead>
       <tbody>
@@ -80,7 +100,14 @@ if ($status == false) {
         <?=$output ?>
       </tbody>
     </table>
+
+
   </fieldset>
+  <!-- <input type="hidden" name="user_id" value="<?=$record['user_id']?> disabled" >
+  <input type="hidden" name="password" value="<?=$record['password']?> disabled" > -->
+
+
+
 
 </body>
 
